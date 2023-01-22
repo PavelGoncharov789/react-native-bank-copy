@@ -1,10 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { LogBox, StyleSheet, Text, View } from 'react-native';
-import { AuthProvider } from './app/providers/authProvider';
-import Navigation from './app/navigation/Navigation';
+import React from "react";
+
+import { TailwindProvider } from "tailwind-rn";
+
+import Navigation from "./app/navigation/Navigation";
+import { AuthProvider } from "./app/providers/authProvider";
+import utilities from "./tailwind.json";
 
 export default function App() {
-  return (<AuthProvider>
-      <Navigation/>
-    </AuthProvider>);
+  return (
+    <AuthProvider>
+      <TailwindProvider utilities={utilities}>
+        <Navigation />
+      </TailwindProvider>
+    </AuthProvider>
+  );
 }
